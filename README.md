@@ -6,6 +6,6 @@ Developed at [HackUMass 2015](http://hackumass.com/)
 
 Developed by:
 
-_ Anh Duc Bui
-_ Thai Nguyen
-_ Tri Nguyen
+- Anh Duc Bui
+- Thai Nguyen
+- Tri Nguyen
