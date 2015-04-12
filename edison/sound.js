@@ -4,7 +4,7 @@
 // Plug the Led component into the D4 slot
 var five = require("johnny-five");
 var Edison = require("edison-io");
-var socket = require('socket.io-client')('http://192.168.0.102:3000');
+var socket = require('socket.io-client')('http://192.168.0.108:3000');
 var board = new five.Board({
   io: new Edison()
 });

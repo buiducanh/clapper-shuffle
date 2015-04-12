@@ -10,7 +10,7 @@ var currVideo = {
 };
 var MAX_NUM_VIDEOS = 10;
 var cached = {};
-var fbAccessToken = 'CAACEdEose0cBAEr3M4rJa5aEeWpJTBlp8wdrAmatt3XZCK1FRRCDLNp5jZACQgmsf2oHgGZBb8x8diYIeJXsuRmT2Ob96Mgh7RiCyg7o7ELMC66ZB8r5HPZBsLS66LJ5WmCyCixNINll5LzZCRiVq5y4X6zIv89eVEBhrlU1223NbyZAnvfoflVc3ZAxn7ucYLYQUCbyOU5nmR3VrVzj95aC';
+var fbAccessToken = 'CAACEdEose0cBAA0ZBI8Ns25hhZA3ahnRzZC3rBVKTvmQNZA2zNP4eb7nSRZAUiPqTL8ahmVCRrpKljMyk7Is5gvY3aJUR1IegDVRQbWxDpd8vvy8zhjCCNegOCkZB6uARby5o91R0sgBCMA0P84LHuSuQp3AbCBPTiCPKHErvsjdFe3kX9aXiAkw2MfS16hcscurvu6bcZBYvC7ZA7JA0NNJl0Q3dO8QozwZD';
 graph.setAccessToken(fbAccessToken);
 app.set('view engine', 'ejs');
 
@@ -42,9 +42,12 @@ io.on('connection', function(socket){
 	        			title: data.items[idx].snippet.title,
 	        			videoId: data.items[idx].snippet.resourceId.videoId
 	        		};
-	        		if (!cached[newVideo.videoId] || cached.length >= MAX_NUM_VIDEOS) {
+	        		if (!cached[newVideo.videoId] || cached.length >= MAX_NUM_VIDEOS-1) {
 	        			cached[currVideo.videoId] = newVideo;
 	        		}
+			        else{
+				    cached = {};
+				}
 					currVideo = newVideo;
 					io.sockets.emit('shuffle',newVideo);
 	        	}
